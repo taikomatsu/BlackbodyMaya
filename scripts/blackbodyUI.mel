@@ -1,0 +1,4 @@
+global proc blackbodyUI()
+{
+	python("import blackbody.maya;blackbody.maya.main()");
+}

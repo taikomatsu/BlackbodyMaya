@@ -1,0 +1,20 @@
+global proc AEblackbodyTemplate(string $nodeName)
+{
+	editorTemplate -beginScrollLayout;
+
+	editorTemplate -beginLayout "Blackbody Attributes" -collapse 0;
+		editorTemplate -addControl "numberOfSamples";
+		editorTemplate -addControl "minTemperature";
+		editorTemplate -addControl "maxTemperature";
+		editorTemplate -addSeparator;
+		editorTemplate -addControl "energyExp";
+		editorTemplate -addControl "energyMult";
+		editorTemplate -addControl "energyOffset";
+	editorTemplate -endLayout;
+
+	editorTemplate -addExtraControls;
+	editorTemplate -endScrollLayout;
+
+	editorTemplate -suppress "outColor";
+	editorTemplate -suppress "outCoord";
+}
