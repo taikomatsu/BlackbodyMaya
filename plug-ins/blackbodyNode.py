@@ -31,17 +31,10 @@ class BlackbodyNode(OpenMayaMPx.MPxNode):
 		OpenMayaMPx.MPxNode.__init__(self)
 
 	def compute(self, plug, dataBlock):
-		print '[INFO-0] plug name is "%s"' % plug.name()
-		#if plug != BlackbodyNode.aOutColor and plug.parent() != BlackbodyNode.aOutColor \
-		#	and plug != BlackbodyNode.aOutCoord and plug.parent() != BlackbodyNode.aOutCoord:
-		#	return OpenMaya.kUnknownParameter
-		print '[INFO-1a] plug == BlackbodyNode.aOutColor: %d' % (plug == BlackbodyNode.aOutColor)
-		print '[INFO-1b] plug == BlackbodyNode.aOutCoord: %d' % (plug == BlackbodyNode.aOutCoord)
 		if  plug != BlackbodyNode.aOutColor and plug != BlackbodyNode.aOutCoord:
 			return OpenMaya.kUnknownParameter
 
 		logicalIndex = plug.logicalIndex()
-		print '[INFO-2] id-%d: %s' % (logicalIndex, plug.name())
 		minTemp = dataBlock.inputValue(self.aMinTemperature).asDouble()
 		maxTemp = dataBlock.inputValue(self.aMaxTemperature).asDouble()
 		nSamples = dataBlock.inputValue(self.aNumSamples).asInt()
@@ -51,7 +44,6 @@ class BlackbodyNode(OpenMayaMPx.MPxNode):
 		outColor_hdl = dataBlock.outputArrayValue(self.aOutColor)
 		outCoord_hdl = dataBlock.outputArrayValue(self.aOutCoord)
 
-		print '[INFO-3] Element Count: %d' % outColor_hdl.elementCount()
 		# set blackbody radiation color
 		color, coordStep = getBlackbodyColorAndCoord(logicalIndex, nSamples,
 			minTemp, maxTemp, energyExp, energyOffset, energyMult)
