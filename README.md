@@ -99,7 +99,3 @@ If you have some ideas, or found bugs, please tell me it.
 
 mail: taikomatsu__AT__gmail.com
 (Please replace __AT__ to @)
-<<<<<<< HEAD
-
-=======
->>>>>>> 860c447f01f45deb5d5ef1378ce3608aa15025eb
